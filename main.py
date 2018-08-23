@@ -20,10 +20,12 @@ def turtle_setup():
     window.addshape("iss.gif")
     sk = turtle.Turtle()
     sk2 = turtle.Turtle()
+    sk2.color("yellow")
+    sk2.hideturtle()
     sk2.goto(-86, 32)
     sk2.dot(5, "yellow")
     sk.shape("iss.gif")
-    return sk
+    return sk, sk2
 
 def indy_data():
     response = requests.get('http://api.open-notify.org/iss-pass.json', params={'lat': 39.82, 'lon': -86.172})
@@ -45,7 +47,11 @@ def main():
     latit, longit = int(float(cords['latitude'])), int(float(cords['longitude']))
     date_of_passover = indy_data()
 
-    sk = turtle_setup()
+    time_text = '{}'.format(date_of_passover)
+
+    sk, sk2 = turtle_setup()
+
+    sk2.write(time_text, False, align="left")
 
     sk.setx(latit)
     sk.sety(longit)
