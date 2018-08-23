@@ -24,7 +24,7 @@ def turtle_setup():
     sk2 = turtle.Turtle()
     sk2.color("yellow")
     sk2.hideturtle()
-    sk2.goto(-86, 32)
+    sk2.goto(-86, 39)
     sk2.dot(5, "yellow")
     sk.shape("iss.gif")
     return sk, sk2
@@ -40,7 +40,6 @@ def indy_data():
 
 
 def main():
-
     people = grab_astros()
     print 'Number of astronauts in space:', len(people)
     for person in people:
